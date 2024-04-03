@@ -1,5 +1,6 @@
 import './style.css';
 
+// Create a UI for the project
 // Create a Todo list app using js modules
 // Show the list of Todos if there are any stored in the localStorage
 // Show the projects if there are any as tabs like in restaurant app

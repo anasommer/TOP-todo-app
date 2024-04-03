@@ -6,7 +6,7 @@
 
 body {
   margin: 30px auto;
-  max-width: 1000px;
+  max-width: 400px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   background: #222831;
@@ -37,4 +37,35 @@ h1 {
 .projects a:hover {
   text-decoration: underline;
   color: #ffd369;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  align-items: stretch;
+}
+
+#todo {
+  flex: 1;
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+#add-todo-btn {
+  flex: 0;
+  cursor: pointer;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background-color: #ffd369;
+  color: #222831;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#add-todo-btn:hover {
+  color: #fff;
 }
