@@ -17,9 +17,13 @@ h1 {
   color: #ffd369;
 }
 
+ul {
+  list-style: none;
+}
+
 .projects {
   display: flex;
-  list-style: none;
+
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -68,4 +72,20 @@ h1 {
 
 #add-todo-btn:hover {
   color: #fff;
+}
+
+.todo-list {
+  margin-top: 30px;
+}
+
+.todo-item {
+  border-bottom: 2px solid #ffd369;
+  padding: 0.7rem 1.2rem;
+  transition: 0.3s all ease;
+}
+
+.remove-icon {
+  color: #f05454;
+  padding-left: 1rem;
+  cursor: pointer;
 }

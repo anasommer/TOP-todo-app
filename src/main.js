@@ -1,4 +1,7 @@
+import '@fortawesome/fontawesome-free/css/all.css';
 import './style.css';
+
+const body = document.querySelector('body');
 
 // Create a UI for the project
 // Create a Todo list app using js modules
