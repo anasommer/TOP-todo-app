@@ -1,9 +1,10 @@
 import form from './form';
+import todosArr from './todos';
 
 export default function home() {
+  const todos = todosArr();
   const content = document.querySelector('#content');
   const projects = ['Project 1', 'Project 2'];
-  const todos = ['groceries', 'wash the car'];
 
   const h1 = document.createElement('h1');
   h1.textContent = 'Todo List';
