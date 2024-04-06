@@ -89,9 +89,3 @@ ul {
   padding-left: 1rem;
   cursor: pointer;
 }
-
-.done {
-  text-decoration: line-through;
-  color: #aaa;
-  border-bottom: 2px solid rgb(65, 52, 32);
-}
