@@ -15,4 +15,5 @@ const body = document.querySelector('body');
 // Add a form submit
 // When form is submitted, the task will be added to the localStorage
 // Then the task will appear in the list of todos
+
 // The task can be checked as Done, can be Edited or Removed (add buttons or icons to implement this functionality)
