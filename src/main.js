@@ -1,9 +1,11 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import './style.css';
+import home from './modules/home';
+
+home();
 
 const body = document.querySelector('body');
 
-// Create a UI for the project
 // Create a Todo list app using js modules
 // Show the list of Todos if there are any stored in the localStorage
 // Show the projects if there are any as tabs like in restaurant app

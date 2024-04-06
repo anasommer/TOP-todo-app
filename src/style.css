@@ -23,7 +23,6 @@ ul {
 
 .projects {
   display: flex;
-
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -46,20 +45,27 @@ ul {
 .container {
   margin-top: 20px;
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#todo {
-  flex: 1;
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo {
   padding: 8px 20px;
   border-radius: 4px;
   border: none;
   font-size: 1.2rem;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 #add-todo-btn {
-  flex: 0;
+  margin: 10px auto;
   cursor: pointer;
   border: none;
   padding: 12px 20px;
@@ -74,13 +80,19 @@ ul {
   color: #fff;
 }
 
+.todos-container {
+  border-radius: 4px;
+  padding: 0 30px 20px;
+  background: #6b6b6bbf;
+}
+
 .todo-list {
   margin-top: 30px;
 }
 
 .todo-item {
   border-bottom: 2px solid #ffd369;
-  padding: 0.7rem 1.2rem;
+  padding: 1rem 1.2rem;
   transition: 0.3s all ease;
 }
 
