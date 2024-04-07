@@ -4,10 +4,10 @@ export default function form() {
   formEl.innerHTML = `
   <input type="text" id="todo-title" class="todo" placeholder="Enter todo" name="title"/>
   <input type="text" id="todo-description"  class="todo" placeholder="Description" name="description"/>
-  <input type="date" id="todo-date"  class="todo" placeholder="Due date" />
-  <label for="todo-prio" class="todo">Choose priority:</label>
+  <input type="date" id="todo-date"  class="todo" placeholder="Due date" name="due-date"/>
+  <label for="todo-prio" class="todo" >Choose priority:</label>
 
-<select id="todo-prio" class="todo">
+<select id="todo-prio" class="todo" name="priority">
   <option value="low">Low</option>
   <option value="medium">Medium</option>
   <option value="high">High</option>
@@ -21,8 +21,8 @@ export default function form() {
     e.preventDefault();
     const data = new FormData(formEl);
 
-    for (const key of data.keys()) {
-      console.log(key);
+    for (const [key, value] of data) {
+      console.log(`${key} : ${value}`);
     }
   });
 
