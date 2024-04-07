@@ -1,13 +1,15 @@
-export default function addTodo(data) {
+export default function addTodo(data, todosArray) {
   const { title, description, dueDate, priority } = data;
 
-  const todoItem = document.createElement('li');
-  todoItem.innerHTML = `
-    <li class="todo-item">
-    ${title} : ${description}. Due date: ${dueDate}. Priority: ${priority}
-    <i class="fas fa-xl fa-xmark remove-icon"></i>
-  </li>
-    `;
+  const newTodo = {
+    title,
+    description,
+    dueDate,
+    priority,
+  };
 
-  return todoItem;
+  todosArray.push(newTodo);
+  localStorage.setItem('todos', JSON.stringify(todosArray));
+
+  return newTodo;
 }

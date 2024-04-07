@@ -1,4 +1,5 @@
 import addTodo from './add';
+import removeTodo from './removeTodo';
 import todosArr from './todos';
 
 export default function form() {
@@ -30,15 +31,10 @@ export default function form() {
     const dueDate = data.get('dueDate');
     const priority = data.get('priority');
 
-    const newTodo = {
-      title,
-      description,
-      dueDate,
-      priority,
-    };
-
-    existingTodos.push(newTodo);
-    localStorage.setItem('todos', JSON.stringify(existingTodos));
+    const newTodo = addTodo(
+      { title, description, dueDate, priority },
+      existingTodos
+    );
 
     const todosDiv = document.querySelector('.todos-container');
     const todoList = todosDiv.querySelector('.todo-list');
@@ -53,6 +49,11 @@ export default function form() {
     newTodoElement.classList.add('todo-item');
     newTodoElement.innerHTML = `${prioIcon} ${title}: ${description}. <br> <i class="fa-solid fa-calendar-days due-date"></i> ${dueDate} <i class="fas fa-xl fa-xmark remove-icon"></i> `;
     todoList.appendChild(newTodoElement);
+
+    const removeIcon = newTodoElement.querySelector('.remove-icon');
+    removeIcon.addEventListener('click', () => {
+      removeTodo(newTodoElement, existingTodos);
+    });
 
     formEl.reset();
   });

@@ -4,20 +4,9 @@ import todosArr from './todos';
 export default function home() {
   const todos = todosArr();
   const content = document.querySelector('#content');
-  const projects = ['Project 1', 'Project 2'];
 
   const h1 = document.createElement('h1');
   h1.textContent = 'Todo List';
-
-  const nav = document.createElement('nav');
-  nav.innerHTML = `
-  <ul class="projects">
-${projects
-  .map((project) => {
-    return `<li><a href="#">${project}</a></li>`;
-  })
-  .join('')}
-</ul>`;
 
   const container = document.createElement('div');
   container.classList.add('container');
@@ -41,6 +30,6 @@ ${projects
 
   todosDiv.appendChild(todoList);
 
-  content.append(h1, nav, container, todosDiv);
+  content.append(h1, container, todosDiv);
   return content;
 }
