@@ -37,20 +37,23 @@ export default function form() {
       priority,
     };
 
-    const todoItem = addTodo({ title, description, dueDate, priority });
-    console.log(todoItem);
-
     existingTodos.push(newTodo);
     localStorage.setItem('todos', JSON.stringify(existingTodos));
 
     const todosDiv = document.querySelector('.todos-container');
     const todoList = todosDiv.querySelector('.todo-list');
     const newTodoElement = document.createElement('li');
+
+    let prioIcon =
+      priority === 'high'
+        ? '<i class="fa-solid fa-bolt prio-high"></i>'
+        : priority === 'medium'
+        ? '<i class="fa-solid fa-bolt prio-medium"></i>'
+        : '<i class="fa-solid fa-bolt"></i>';
     newTodoElement.classList.add('todo-item');
-    newTodoElement.innerHTML = `${title}: ${description} <i class="fas fa-xl fa-xmark remove-icon"></i>`;
+    newTodoElement.innerHTML = `${prioIcon} ${title}: ${description}. <br> <i class="fa-solid fa-calendar-days due-date"></i> ${dueDate} <i class="fas fa-xl fa-xmark remove-icon"></i> `;
     todoList.appendChild(newTodoElement);
 
-    // Clear the form fields
     formEl.reset();
   });
 

@@ -101,3 +101,15 @@ form {
   padding-left: 1rem;
   cursor: pointer;
 }
+
+.prio-medium {
+  color: #ffd369;
+}
+
+.prio-high {
+  color: #d83e3e;
+}
+
+.due-date {
+  margin-top: 5px;
+}
