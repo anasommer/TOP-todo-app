@@ -1,4 +1,5 @@
 import addTodo from './add';
+import createTodoUI from './createTodoUI';
 import removeTodo from './removeTodo';
 import todosArr from './todos';
 
@@ -36,18 +37,9 @@ export default function form() {
       existingTodos
     );
 
-    const todosDiv = document.querySelector('.todos-container');
-    const todoList = todosDiv.querySelector('.todo-list');
-    const newTodoElement = document.createElement('li');
+    const newTodoElement = createTodoUI(newTodo, existingTodos.length - 1);
 
-    let prioIcon =
-      priority === 'high'
-        ? '<i class="fa-solid fa-bolt prio-high"></i>'
-        : priority === 'medium'
-        ? '<i class="fa-solid fa-bolt prio-medium"></i>'
-        : '<i class="fa-solid fa-bolt"></i>';
-    newTodoElement.classList.add('todo-item');
-    newTodoElement.innerHTML = `${prioIcon} ${title}: ${description}. <br> <i class="fa-solid fa-calendar-days due-date"></i> ${dueDate} <i class="fas fa-xl fa-xmark remove-icon"></i> `;
+    const todoList = document.querySelector('.todo-list');
     todoList.appendChild(newTodoElement);
 
     const removeIcon = newTodoElement.querySelector('.remove-icon');
