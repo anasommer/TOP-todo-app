@@ -1,4 +1,15 @@
 export default function todosArr() {
-  const todoItems = ['groceries', 'wash the car', 'walk'];
-  return todoItems;
+  const storedTodos = localStorage.getItem('todos');
+  if (storedTodos) {
+    try {
+      const parsedTodos = JSON.parse(storedTodos);
+
+      if (Array.isArray(parsedTodos)) {
+        return parsedTodos;
+      }
+    } catch (error) {
+      console.error('Error parsing todos from local storage');
+    }
+  }
+  return [];
 }

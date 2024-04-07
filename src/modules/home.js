@@ -24,19 +24,22 @@ ${projects
   container.appendChild(form());
 
   const todosDiv = document.createElement('div');
-  todosDiv.innerHTML = `
-<div class="todos-container">
-<ul class="todo-list">
-${todos
-  .map((todo, index) => {
-    return ` <li class="todo-item" id="todo-${index}">
-    ${todo}<i class="fas fa-xl fa-xmark remove-icon"></i>
-  </li>`;
-  })
-  .join('')}
- 
-</ul>
-`;
+  todosDiv.classList.add('todos-container');
+
+  const todoList = document.createElement('ul');
+  todoList.classList.add('todo-list');
+
+  todos.forEach((todo, index) => {
+    const todoItem = document.createElement('li');
+    todoItem.classList.add('todo-item');
+    todoItem.id = `todo-${index}`;
+    todoItem.innerHTML = `
+    ${todo.title}: ${todo.description} <i class="fas fa-xl fa-xmark remove-icon"></i>
+    `;
+    todoList.appendChild(todoItem);
+  });
+
+  todosDiv.appendChild(todoList);
 
   content.append(h1, nav, container, todosDiv);
   return content;

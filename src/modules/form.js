@@ -1,7 +1,9 @@
 import addTodo from './add';
+import todosArr from './todos';
 
 export default function form() {
   const formEl = document.createElement('form');
+  const existingTodos = todosArr();
 
   formEl.innerHTML = `
   <input type="text" id="todo-title" class="todo" placeholder="Enter todo" name="title"/>
@@ -28,10 +30,28 @@ export default function form() {
     const dueDate = data.get('dueDate');
     const priority = data.get('priority');
 
+    const newTodo = {
+      title,
+      description,
+      dueDate,
+      priority,
+    };
+
     const todoItem = addTodo({ title, description, dueDate, priority });
     console.log(todoItem);
 
-    document.querySelector('.todo-list').appendChild(todoItem);
+    existingTodos.push(newTodo);
+    localStorage.setItem('todos', JSON.stringify(existingTodos));
+
+    const todosDiv = document.querySelector('.todos-container');
+    const todoList = todosDiv.querySelector('.todo-list');
+    const newTodoElement = document.createElement('li');
+    newTodoElement.classList.add('todo-item');
+    newTodoElement.innerHTML = `${title}: ${description} <i class="fas fa-xl fa-xmark remove-icon"></i>`;
+    todoList.appendChild(newTodoElement);
+
+    // Clear the form fields
+    formEl.reset();
   });
 
   return formEl;
